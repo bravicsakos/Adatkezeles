@@ -1,0 +1,24 @@
+def primitiv_kereso(veges_test):
+    szamok = []
+    osztok = []
+    nem_az = False
+    primitivek = []
+    for i in range(1, veges_test):
+        szamok.append(i)
+
+    for i in range(1, veges_test):
+        if (veges_test - 1) % i == 0:
+            osztok.append(i)
+
+    for szam in szamok:
+        for oszto in osztok:
+            if (szam**oszto) % veges_test == 1 and oszto != veges_test - 1:
+                nem_az = True
+        if not nem_az:
+            primitivek.append(szam)
+        nem_az = False
+    return primitivek
+
+
+print(primitiv_kereso(13))
+
